@@ -1,0 +1,11 @@
+
+Ayúdanos a comprender un poco tu archivo indicando un tipo de dato para cada columna
+A continuación te mostraremos las primeras filas del archivo para que puedas identificar el tipo de dato en cada columna
+Debes tener en cuenta
+
+    La primera fila del archivo no se importa, considerando que normalmente es el título de la columna
+    Solo se importarán 1.000 contactos por archivo
+    Solo es obligatorio definir una columna para Nombre del contacto *
+    Si seleccionas una lista de precios, todos los contactos de tu archivo quedarán asociados a esta lista
+
+

@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+#bot-chat-main-wrapper {
+
+    background: rgba(0, 0, 0, 0.73);
+    height: 100%;
+    /*position: fixed;*/
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 5000000;
+}
+
+.bot-chat-main-container {
+    width: 320px;
+    position: fixed;
+    bottom: 0;
+    right: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color : #4A4A4A;
+    letter-spacing: 0;
+    line-height: 17px;
+    z-index: 500000;
+    border-color: rgba(0,0,0,0.01);
+    border-width: 0px 1px 0px 1px;
+    border-radius: 5px 5px 0px 0px;
+    box-shadow: 0px 0px 12px 4px rgba(0,0,0,0.08);
+}
+.bot-chat-header {
+    height: 40px;
+    border-radius: 5px 5px 0 0;
+
+    color: #fff;
+    padding: 11px 40px;
+    font-size: 16px;
+    background: url(https://cdn1.alegra.com/images/welcome-wizard/icon-chat.png) no-repeat #0093d5 3px center;
+    position: relative;
+}
+.bot-chat-body {
+    background-color: #F3F6FA;
+
+}
+#bot-chat-result {
+    padding : 20px 17px 0px 17px;
+    height: 350px;
+    overflow: auto;
+}
+.left-align {
+    padding-left : 45px;
+    float : left;
+    background: url(./bmo-small.png) no-repeat left bottom;
+    /*background: url(https://cdn1.alegra.com/images/welcome-wizard/avatar-bot.png) no-repeat left bottom;*/
+    margin-bottom: 10px;
+
+}
+.left-align .bot-chat-answer {
+    background: #FFFFFF;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.05);
+    border-radius: 20px 20px 20px 0;
+    padding: 10px 16px;
+    min-width: 220px;
+
+}
+
+.bot-chat-footer {
+    clear : both;
+    background-color: #E8EBF0;
+    padding: 10px;
+    margin-top: 10px;
+    height: 60px;
+    font-size: 16px;
+    position: relative;
+}
+.bot-chat-main-container input {
+    height: 40px;
+    width: 250px;
+    background: #FFFFFF;
+    border-style: none;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.05);
+    border-radius: 4px;
+    text-indent: 10px;
+    color: #4A4A4A;
+
+    font-size: 16px;
+}
+
+.user-answer {
+    background: #0093d5;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.05);
+    border-radius: 20px 20px 0 20px;
+    color: #FFFFFF;
+    margin-bottom: 15px;
+    margin-top: 5px;
+    padding : 6px 15px;
+}
+.right-align {
+    float : right;
+}
+.right-align.user-answer {
+    float : right;
+
+}
+
+.bot-chat-main-container  ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: #A8A8B1;
+    opacity: 0.5;
+    font-size: 16px;
+}
+.bot-chat-main-container  :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #A8A8B1;
+    opacity: 0.5;
+    font-size: 16px;
+
+}
+.bot-chat-main-container  ::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #A8A8B1;
+    opacity: 0.5;
+    font-size: 16px;
+}
+.bot-chat-main-container  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #A8A8B1;
+    opacity: 0.5;
+    font-size: 16px;
+}
+.bot-chat-main-container  ::-ms-input-placeholder { /* Microsoft Edge */
+    color: #A8A8B1;
+    opacity: 0.5;
+    font-size: 16px;
+}
+.clearFloat {
+    clear : both;
+}
+.bot-chat-main-container .answers {
+    clear : both;
+    padding-top : 5px;
+} 
+.bot-chat-main-container .answerOption {
+    float: left;
+    color:  #0093d5;
+    font-size: 13px;
+    background: #FFFFFF;
+    border: 1px solid #0093d5;
+    border-radius: 16.67px 16.67px 1.52px 16.67px;
+    padding: 6px 15px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    cursor: pointer;
+} 
+
+.bot-chat-main-container .bot-chat-send {
+    background: url(./icon-send-blue.png) no-repeat center #fff;
+    border-radius: 50%;
+    padding : 20px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor : pointer;
+
+}
+.bot-chat-main-container .bot-chat-waiting {
+    background : url(https://cdn1.alegra.com/images/welcome-wizard/icon-typing.png) no-repeat left center transparent;
+    box-shadow : none;
+    padding    : 20px; 
+}
+.bot-chat-main-container .bot-chat-close {
+    background : url(https://cdn1.alegra.com/images/welcome-wizard/icon-minimize.png) no-repeat right bottom transparent;
+    box-shadow : none;
+
+    padding: 20px 20px;
+    position: absolute;
+    bottom: 2px;
+    right: 10px;
+    cursor: pointer;
+}
+.bot-chat-main-container .bot-chat-no-background {
+    background : transparent;
+}
+
+.bot-chat-body.hide, bot-chat-body.hide *
+{
+    height: 0px;
+}
+
+.bot-chat-main-container .bot-chat-close.maximize {
+    background-image :url(https://cdn1.alegra.com/images/welcome-wizard/icon-maximize.png) ;
+}
+
+.bot-chat-main-container a {
+    cursor : pointer;
+    color: #0093d5;
+}

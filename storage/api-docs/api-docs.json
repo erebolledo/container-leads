@@ -1,0 +1,306 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "API Rest candidatos Alegra.",
+        "version": "1.0.0"
+    },
+    "basePath": "/api",
+    "paths": {
+        "/leads": {
+            "get": {
+                "tags": [
+                    "Listar candidatos"
+                ],
+                "summary": "Lista todos los candidatos",
+                "description": "",
+                "operationId": "show",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "Desde que id de candidato se va a listar. Por ejemplo para listar desde el candidato 5, se env\u00eda start=5.",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Cantidad de candidatos a partir del inicio que se desea retornar. Por defecto retorna 30 candidatos. Si este valor es mayor que 30, la aplicaci\u00f3n retorna error.",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int"
+                    },
+                    {
+                        "name": "api_key",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Busqueda satisfactoria"
+                    },
+                    "400": {
+                        "description": "El par\u00e1metro de inicio (start) para retornar los items debe ser mayor o igual a 0. Y El l\u00edmite de items para retornar debe estar entre 0 y 30."
+                    }
+                },
+                "security": [
+                    {
+                        "petstore_auth": [
+                            "write:pets",
+                            "read:pets"
+                        ]
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Crear candidato"
+                ],
+                "summary": "Crea un candidato",
+                "description": "",
+                "operationId": "store",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Objeto candidato a crear",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/candidato"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "El recurso fue creado"
+                    },
+                    "400": {
+                        "description": "No se encontr\u00f3 informaci\u00f3n para crear el recurso."
+                    }
+                },
+                "security": [
+                    {
+                        "petstore_auth": [
+                            "write:pets",
+                            "read:pets"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/leads/{id}": {
+            "get": {
+                "tags": [
+                    "Consultar candidato"
+                ],
+                "summary": "Muestra un candidato",
+                "description": "",
+                "operationId": "show",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id del candidato a mostrar",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int"
+                    },
+                    {
+                        "name": "api_key",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Busqueda satisfactoria"
+                    },
+                    "404": {
+                        "description": "El candidato no se encontr\u00f3 registrado en Alegra"
+                    }
+                },
+                "security": [
+                    {
+                        "petstore_auth": [
+                            "write:pets",
+                            "read:pets"
+                        ]
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Editar candidato"
+                ],
+                "summary": "Actualiza un candidato existente",
+                "description": "",
+                "operationId": "update",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identificador del contacto que se desea editar. Se debe enviar en la URL",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Objeto candidato a ser actualizado",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/candidato"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Busqueda satisfactoria"
+                    },
+                    "404": {
+                        "description": "No se encontr\u00f3 el candidato con el id"
+                    }
+                },
+                "security": [
+                    {
+                        "petstore_auth": [
+                            "write:pets",
+                            "read:pets"
+                        ]
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Eliminar candidato"
+                ],
+                "summary": "Elimina un candidato del sistema",
+                "description": "",
+                "operationId": "destroy",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id del candidato a eliminar",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int"
+                    },
+                    {
+                        "name": "api_key",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "El contacto fue eliminado correctamente"
+                    },
+                    "404": {
+                        "description": "El candidato no se encontr\u00f3 registrado en Alegra"
+                    }
+                },
+                "security": [
+                    {
+                        "petstore_auth": [
+                            "write:pets",
+                            "read:pets"
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    "definitions": {
+        "candidato": {
+            "required": [
+                "name"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "default": "Samantha Perez"
+                },
+                "phonePrimary": {
+                    "type": "string",
+                    "default": "02126821370"
+                },
+                "phoneSecondary": {
+                    "type": "string",
+                    "default": "02124359211"
+                },
+                "mobile": {
+                    "type": "string",
+                    "default": "04166424255"
+                },
+                "email": {
+                    "type": "string",
+                    "default": "samaper@gmail.com"
+                },
+                "company": {
+                    "type": "string",
+                    "default": "CANTV"
+                },
+                "source": {
+                    "type": "string",
+                    "default": "internet"
+                },
+                "industry": {
+                    "type": "string",
+                    "default": "Telas"
+                },
+                "country": {
+                    "type": "string",
+                    "default": "Venezuela"
+                }
+            },
+            "type": "object"
+        },
+        "UpdateLead": {
+            "description": "Es el objeto contacto de Alegra",
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/candidato"
+                },
+                {
+                    "required": [
+                        "id"
+                    ],
+                    "properties": {
+                        "id": {
+                            "type": "integer",
+                            "format": "int"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}
